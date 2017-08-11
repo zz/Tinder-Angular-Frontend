@@ -5,4 +5,4 @@ export class RegisterUserModel {
     public password?: string,
     public confirmPassword?: string
   ) {}
-} 
+}

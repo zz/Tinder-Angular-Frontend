@@ -1,6 +1,6 @@
-import { Injectable } from '@angular/core'
+import { Injectable } from '@angular/core';
 
-@Injectable() 
+@Injectable()
 
 export class AuthService {
    saveUser (user) {
@@ -8,7 +8,7 @@ export class AuthService {
   }
 
    getUser () {
-   return window.localStorage.getItem('user')
+   return window.localStorage.getItem('user');
   }
 
    removeUser () {

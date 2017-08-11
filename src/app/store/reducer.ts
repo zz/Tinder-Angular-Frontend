@@ -8,4 +8,4 @@ import { usersReducer } from './users/users.reducer';
 export const reducer = combineReducers<IAppState>({
     core: coreReducer,
     users: usersReducer
-})
+});

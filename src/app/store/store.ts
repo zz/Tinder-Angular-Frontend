@@ -1,11 +1,11 @@
-import { 
-  createStore, 
-  applyMiddleware, 
-  compose, 
-  GenericStoreEnhancer 
+import {
+  createStore,
+  applyMiddleware,
+  compose,
+  GenericStoreEnhancer
 } from 'redux';
 
-import deepFreeze  from './deepFreeze'
+import deepFreeze from './deepFreeze';
 import { reducer } from './reducer';
 import { IAppState } from './app.state';
 

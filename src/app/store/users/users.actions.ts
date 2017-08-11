@@ -1,7 +1,7 @@
-import { Injectable } from '@angular/core'
-import { UsersService } from '../../users/users.service'
+import { Injectable } from '@angular/core';
+import { UsersService } from '../../users/users.service';
 import { NgRedux } from 'ng2-redux';
-import { IAppState } from '..'
+import { IAppState } from '..';
 
 export const USER_LOGGED_IN = 'users/LOGIN';
 export const USER_REGISTERED = 'users/REGISTER';
@@ -12,8 +12,8 @@ export class UsersActions {
   constructor (
       private usersService: UsersService,
       private ngRedux: NgRedux<IAppState>
-    ){}
- 
+    ) {}
+
   register (user) {
     this.usersService
       .register(user)
@@ -21,8 +21,8 @@ export class UsersActions {
         this.ngRedux.dispatch({
             type: USER_REGISTERED,
             result
-        })
-      })
+        });
+      });
   }
 
   login (user) {
@@ -32,13 +32,13 @@ export class UsersActions {
           this.ngRedux.dispatch({
              type: USER_LOGGED_IN,
              result
-          })
-        })
+          });
+        });
   }
 
   logout () {
     this.ngRedux.dispatch({
       type: USER_LOGOUT
-    })
+    });
   }
 }

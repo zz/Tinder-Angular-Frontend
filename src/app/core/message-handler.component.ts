@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 
-import { NgRedux } from 'ng2-redux'
-import { IAppState } from '../store'
+import { NgRedux } from 'ng2-redux';
+import { IAppState } from '../store';
 
 @Component({
     selector: 'message-handler',
-    template:`
+    template: `
       <div>
       {{message}}
       </div>

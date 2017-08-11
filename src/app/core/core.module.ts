@@ -1,13 +1,13 @@
-import { NgModule } from '@angular/core'
-import { RouterModule } from '@angular/router'
-import { CommonModule } from '@angular/common'
+import { NgModule } from '@angular/core';
+import { RouterModule } from '@angular/router';
+import { CommonModule } from '@angular/common';
 
-import { HttpService } from './http.service'
-import { AuthService } from './auth.service'
-import { PrivateRoute } from './private-route'
+import { HttpService } from './http.service';
+import { AuthService } from './auth.service';
+import { PrivateRoute } from './private-route';
 
-import { NavbarComponent } from './navbar.component'
-import { MessageHandlerComponent } from './message-handler.component'
+import { NavbarComponent } from './navbar/navbar.component';
+import { MessageHandlerComponent } from './message-handler.component';
 
 @NgModule ({
   declarations: [

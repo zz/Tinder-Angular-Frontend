@@ -1,8 +1,8 @@
 export interface IUsersState {
-  userRegistered: boolean,
-  userAuthenticated: boolean,
-  token: string,
-  username: string
+  userRegistered: boolean;
+  userAuthenticated: boolean;
+  token: string;
+  username: string;
 }
 
 export const initialState: IUsersState = {
@@ -10,4 +10,4 @@ export const initialState: IUsersState = {
   userAuthenticated: false,
   token: null,
   username: null
-}
+};

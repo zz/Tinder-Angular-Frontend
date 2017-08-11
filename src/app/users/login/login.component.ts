@@ -1,13 +1,13 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router'
+import { Router } from '@angular/router';
 
-import { NgRedux } from 'ng2-redux'
-import { IAppState } from '../store'
-import { UsersActions } from '../store/users/users.actions'
+import { NgRedux } from 'ng2-redux';
+import { IAppState } from '../../store';
+import { UsersActions } from '../../store/users/users.actions';
 
-import { AuthService } from '../core/auth.service'
+import { AuthService } from '../../core/auth.service';
 
-import { LoginUserModel } from './login-user.model'
+import { LoginUserModel } from './login-user.model';
 
 
 
@@ -16,7 +16,7 @@ import { LoginUserModel } from './login-user.model'
   templateUrl: './login.component.html'
 })
 export class LoginComponent {
-  user:LoginUserModel= new LoginUserModel()
+  user: LoginUserModel= new LoginUserModel();
 
   constructor (
       private usersActions: UsersActions,
@@ -34,8 +34,8 @@ export class LoginComponent {
             this.authService.authenticateUser(users.token);
             this.authService.saveUser(users.username);
 
-            this.router.navigateByUrl('')
+            this.router.navigateByUrl('');
           }
-        })
+        });
   }
 }

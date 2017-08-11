@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router'
+import { Router } from '@angular/router';
 
-import { NgRedux } from 'ng2-redux'
-import { IAppState } from '../store'
+import { NgRedux } from 'ng2-redux';
+import { IAppState } from '../../store';
 
-import { AuthService } from './auth.service'
+import { AuthService } from './../auth.service';
 
-import { UsersActions } from '../store/users/users.actions'
+import { UsersActions } from '../../store/users/users.actions';
 
 
 @Component ({
@@ -15,15 +15,15 @@ import { UsersActions } from '../store/users/users.actions'
 })
 
 export class NavbarComponent implements OnInit {
-  authenticated: boolean = false;
+  authenticated = false;
   username: string = null;
-  
+
   constructor (
     private ngRedux: NgRedux<IAppState>,
     private router: Router,
     private usersActions: UsersActions,
     private authService: AuthService
-  ){}
+  ) {}
 
   ngOnInit () {
     this.ngRedux
@@ -31,7 +31,7 @@ export class NavbarComponent implements OnInit {
       .subscribe(users => {
         this.authenticated = users.userAuthenticated;
         this.username = users.username;
-      })
+      });
   }
 
   logout () {

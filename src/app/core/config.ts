@@ -1,14 +1,14 @@
-import { NavigationStart } from '@angular/router'
+import { NavigationStart } from '@angular/router';
 
-import { ROUTES_CHANGE } from'../store/core/core.actions'
-import { USER_LOGGED_IN } from '../store/users/users.actions'
+import { ROUTES_CHANGE } from '../store/core/core.actions';
+import { USER_LOGGED_IN } from '../store/users/users.actions';
 
 export function config(ngRedux, router, authService) {
   router.events.subscribe(ev => {
        if (ev instanceof NavigationStart) {
          ngRedux.dispatch({
            type: ROUTES_CHANGE
-         })
+         });
        }
      });
 
@@ -25,6 +25,6 @@ export function config(ngRedux, router, authService) {
              name: username
            }
          }
-       })
+       });
      }
 }

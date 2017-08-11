@@ -4,4 +4,4 @@ export interface ICoreState {
 
 export const initialState: ICoreState = {
   message: null
-}
+};

@@ -1,10 +1,10 @@
-import { initialState } from './users.state'
+import { initialState } from './users.state';
 
-import { 
+import {
     USER_REGISTERED,
     USER_LOGGED_IN,
     USER_LOGOUT
- } from './users.actions'
+ } from './users.actions';
 
 function userLogin(state, action) {
   const result = action.result;

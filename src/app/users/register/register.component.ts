@@ -3,9 +3,9 @@ import { RegisterUserModel } from './register-user.model';
 import { Router } from '@angular/router';
 
 import { NgRedux } from 'ng2-redux';
-import { IAppState } from '../store';
+import { IAppState } from '../../store';
 
-import { UsersActions } from '../store/users/users.actions';
+import { UsersActions } from '../../store/users/users.actions';
 
 @Component ({
     selector: 'register',
@@ -29,6 +29,6 @@ export class RegisterComponent {
         if (userRegistered) {
           this.router.navigateByUrl('users/login');
         }
-      })
+      });
   }
 }
