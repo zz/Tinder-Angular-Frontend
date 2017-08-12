@@ -33,9 +33,12 @@ function logout(state, action) {
 }
 
 function profile(state, action) {
+  console.log(action)
   const result = action.result;
+  console.log(result.updated.name)
   return Object.assign({}, state, {
-    profileCreated: result.success
+    profileCreated: result.success,
+    username: result.updated.name
   });
 }
 
