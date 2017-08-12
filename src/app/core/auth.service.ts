@@ -7,6 +7,10 @@ export class AuthService {
     window.localStorage.setItem('user', user);
   }
 
+   saveUserId (id) {
+    window.localStorage.setItem('userId', id);
+  }
+
    getUser () {
    return window.localStorage.getItem('user');
   }
