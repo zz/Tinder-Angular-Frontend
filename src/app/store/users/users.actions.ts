@@ -6,6 +6,7 @@ import { IAppState } from '..';
 export const USER_LOGGED_IN = 'users/LOGIN';
 export const USER_REGISTERED = 'users/REGISTER';
 export const USER_LOGOUT = 'users/LOGOUT';
+export const USER_PROFILE = 'users/PROFILE';
 export const USERS_LIST = 'users/LIST';
 
 @Injectable()
@@ -24,6 +25,17 @@ export class UsersActions {
             result
         });
       });
+  }
+
+  updateProfile (user) {
+    this.usersService
+      .profile(user)
+      .subscribe(result => {
+        this.ngRedux.dispatch({
+          type: USER_PROFILE,
+          result
+        })
+      })
   }
 
   login (user) {
