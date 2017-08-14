@@ -6,6 +6,7 @@ import { IAppState } from '..';
 export const USER_LOGGED_IN = 'users/LOGIN';
 export const USER_REGISTERED = 'users/REGISTER';
 export const USER_LOGOUT = 'users/LOGOUT';
+export const USERS_LIST = 'users/LIST';
 
 @Injectable()
 export class UsersActions {
@@ -40,5 +41,19 @@ export class UsersActions {
     this.ngRedux.dispatch({
       type: USER_LOGOUT
     });
+  }
+
+  getUsersList (query?) {
+    this.usersService.list(query)
+      .subscribe(users => {
+        if (users.success !== false) {
+          this.ngRedux.dispatch({
+            type: USERS_LIST,
+            users
+          });
+        } else {
+          console.log(users); // TODO: Render on DOM
+        }
+      });
   }
 }

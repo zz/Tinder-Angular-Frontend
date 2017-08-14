@@ -1,0 +1,44 @@
+<!-- <div *ngFor="let user of users">
+  <div>
+    {{user.name}} - {{user.age}} - {{user.gender}} TODO: Style and link to profile
+    <button (click)="like(user._id)">Like</button>
+    <button (click)="dislike(user._id)">Dislike</button>
+  </div> 
+
+</div> -->
+
+<md-card class="wrapper">
+    <md-card-title>List Users</md-card-title>
+    <md-card-content>
+      
+      <md-input-container>
+        <input mdInput 
+          [(ngModel)]="searchQuery" 
+          placeholder="Search" 
+          type="text" 
+        />
+      </md-input-container> 
+      <button md-raised-button (click)="search()">Search</button>
+  
+      <md-list *ngIf='users'>
+        <md-list-item *ngFor='let user of users' >
+          <a 
+          [routerLink]="['/users/profile', user._id]"
+          >{{user.name}} - {{user.age}} - {{user.gender}}</a>
+          <button (click)="like(user._id)">Like</button>
+          <button (click)="dislike(user._id)">Dislike</button>
+        </md-list-item>
+      </md-list>
+  
+      <h2 *ngIf='!users'>No users on this page!</h2>
+  
+      <button [disabled]='page <= 1' md-raised-button (click)='prevPage()'>Previous</button>
+      <button
+        md-raised-button 
+        [disabled]='!users || users.length < 10' 
+        (click)='nextPage()'
+      >
+        Next
+      </button>
+    </md-card-content>
+  </md-card>

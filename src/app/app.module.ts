@@ -1,3 +1,4 @@
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations/';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
@@ -31,7 +32,8 @@ import { config } from './core/config';
     CoreModule,
     HttpModule,
     MatchesModule,
-    MaterialModule
+    MaterialModule,
+    BrowserAnimationsModule
   ],
   bootstrap: [AppComponent]
 })

@@ -1,10 +1,6 @@
 import { initialState } from './users.state';
 
-import {
-    USER_REGISTERED,
-    USER_LOGGED_IN,
-    USER_LOGOUT
- } from './users.actions';
+import { USER_LOGGED_IN, USER_LOGOUT, USER_REGISTERED, USERS_LIST } from './users.actions';
 
 function userLogin(state, action) {
   const result = action.result;
@@ -19,7 +15,6 @@ function userLogin(state, action) {
 
   return state;
 }
-
 
 function userRegistration(state, action) {
   const result = action.result;
@@ -36,6 +31,10 @@ function logout(state, action) {
   });
 }
 
+function loadUsers(state, usersList) {
+  return Object.assign({}, state, { usersList });
+}
+
 export function usersReducer(state = initialState, action) {
     switch (action.type) {
       case USER_REGISTERED:
@@ -44,6 +43,8 @@ export function usersReducer(state = initialState, action) {
         return userLogin(state, action);
       case USER_LOGOUT:
         return logout(state, action);
+      case USERS_LIST:
+        return loadUsers(state, action.users);
       default:
         return state;
     }

@@ -3,13 +3,25 @@ import { HttpService } from '../core/http.service';
 
 @Injectable()
 export class UsersService {
-    constructor(private httpService: HttpService) {}
+  constructor(private httpService: HttpService) {}
 
-    register (user) {
-      return this.httpService.post('auth/register', user);
-    }
+  register (user) {
+    return this.httpService.post('auth/register', user);
+  }
 
-    login (user) {
-        return this.httpService.post('auth/login', user);
-    }
+  login (user) {
+    return this.httpService.post('auth/login', user);
+  }
+
+  list (query?) {
+    return this.httpService.get(`users/list${query}`);
+  }
+
+  like (id) {
+    return this.httpService.post(`matches/like/${id}`, {});
+  }
+
+  dislike (id) {
+    return this.httpService.post(`matches/unlike/${id}`, {});
+  }
 }
