@@ -1,3 +1,4 @@
+import { RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -9,8 +10,24 @@ import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 import { CreateProfileComponent } from './profile/create-profile.component'
 import { ProfileComponent } from './profile/profile.component';
+import { ListComponent } from './list/list.component';
+import {
+  MdListModule,
+  MdCardModule,
+  MdButtonModule,
+  MdInputModule
+} from '@angular/material';
 
 @NgModule ({
+  imports: [
+    CommonModule,
+    FormsModule,
+    MdInputModule,
+    MdButtonModule,
+    MdCardModule,
+    MdListModule,
+    RouterModule
+  ],
   declarations: [
       RegisterComponent,
       LoginComponent,
@@ -23,7 +40,10 @@ import { ProfileComponent } from './profile/profile.component';
     ],
   imports: [
     FormsModule,
-    CommonModule
+    CommonModule,
+    RegisterComponent,
+    LoginComponent,
+    ListComponent
   ]
 })
 

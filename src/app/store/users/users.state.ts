@@ -3,7 +3,8 @@ export interface IUsersState {
   userAuthenticated: boolean;
   token: string;
   username: string;
-  profileCreated: boolean
+  profileCreated: boolean;
+  usersList: Array<any>; // TODO: User Model
 }
 
 export const initialState: IUsersState = {
@@ -11,5 +12,6 @@ export const initialState: IUsersState = {
   userAuthenticated: false,
   token: null,
   username: null,
-  profileCreated: false
+  profileCreated: false,
+  usersList: []
 };

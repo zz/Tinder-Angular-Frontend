@@ -4,18 +4,23 @@ import {
     USER_REGISTERED,
     USER_LOGGED_IN,
     USER_LOGOUT,
-    USER_PROFILE
+    USER_PROFILE,
+    USERS_LIST
  } from './users.actions';
 
 function userLogin(state, action) {
   const result = action.result;
-    return Object.assign({}, state, {
-    userAuthenticated: result.success,
-    token: result.token,
-    username: result.user ? result.user.name : null
-  });
-}
 
+  if (result.success) {
+    return Object.assign({}, state, {
+      userAuthenticated: result.success,
+      token: result.token,
+      username: result.user.email
+    });
+  }
+
+  return state;
+}
 
 function userRegistration(state, action) {
   const result = action.result;
@@ -40,6 +45,9 @@ function profile(state, action) {
     profileCreated: result.success,
     username: result.updated.name
   });
+  
+function loadUsers(state, usersList) {
+  return Object.assign({}, state, { usersList });
 }
 
 export function usersReducer(state = initialState, action) {
@@ -52,6 +60,8 @@ export function usersReducer(state = initialState, action) {
         return logout(state, action);
       case USER_PROFILE:
         return profile(state, action)
+      case USERS_LIST:
+        return loadUsers(state, action.users);
       default:
         return state;
     }

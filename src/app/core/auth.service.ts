@@ -1,38 +1,35 @@
 import { Injectable } from '@angular/core';
 
 @Injectable()
-
 export class AuthService {
-   saveUser (user) {
+  saveUser(user) {
     window.localStorage.setItem('user', user);
   }
 
    saveUserId (id) {
     window.localStorage.setItem('userId', id);
   }
-
-   getUser () {
-   return window.localStorage.getItem('user');
+  getUser() {
+    return window.localStorage.getItem('user');
   }
 
-   removeUser () {
+  removeUser() {
     window.localStorage.removeItem('user');
   }
 
-   authenticateUser (token) {
+  authenticateUser(token) {
     window.localStorage.setItem('token', token);
   }
 
-   isUserAuthenticated () {
+  isUserAuthenticated() {
     return window.localStorage.getItem('token') !== null;
   }
 
-   deauthenticateUser () {
+  deauthenticateUser() {
     window.localStorage.removeItem('token');
   }
 
-   getToken () {
+  getToken() {
     return window.localStorage.getItem('token');
   }
 }
-

@@ -16,7 +16,7 @@ import { LoginUserModel } from './login-user.model';
   templateUrl: './login.component.html'
 })
 export class LoginComponent {
-  user: LoginUserModel= new LoginUserModel();
+  user: LoginUserModel = new LoginUserModel();
 
   constructor (
       private usersActions: UsersActions,
