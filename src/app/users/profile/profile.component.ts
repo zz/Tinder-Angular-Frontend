@@ -26,8 +26,4 @@ export class ProfileComponent implements OnInit {
 
         })
     }
-
-    createProfile () {
-      
-    }
 }

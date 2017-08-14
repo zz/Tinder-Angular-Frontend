@@ -1,7 +1,7 @@
 <div>
   <div *ngIf="authenticated">
     <a routerLink='/users/create-profile'>Create Profile</a>
-    <a routerLink='/users/profile/:id'>{{username}}</a>
+    <a routerLink='/users/profile'>{{username}}</a>
     <a href="javascript:void(0)" (click)="logout()">Logout</a>
   </div>
   <div *ngIf="!authenticated">
