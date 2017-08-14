@@ -12,6 +12,8 @@ import { AppComponent } from './app.component';
 
 import { UsersModule } from './users/users.module';
 import { CoreModule } from './core/core.module';
+import { MatchesModule } from './matches/matches.module';
+import { MaterialModule } from '@angular/material';
 
 import { AuthService } from './core/auth.service';
 import { config } from './core/config';
@@ -27,7 +29,9 @@ import { config } from './core/config';
     UsersModule,
     CarRoutesModule,
     CoreModule,
-    HttpModule
+    HttpModule,
+    MatchesModule,
+    MaterialModule
   ],
   bootstrap: [AppComponent]
 })

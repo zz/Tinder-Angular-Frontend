@@ -8,11 +8,16 @@ import {
 
 function userLogin(state, action) {
   const result = action.result;
+
+  if (result.success) {
     return Object.assign({}, state, {
-    userAuthenticated: result.success,
-    token: result.token,
-    username: result.user ? result.user.name : null
-  });
+      userAuthenticated: result.success,
+      token: result.token,
+      username: result.user.email
+    });
+  }
+
+  return state;
 }
 
 
