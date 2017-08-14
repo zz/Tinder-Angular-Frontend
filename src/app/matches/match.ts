@@ -1,5 +1,6 @@
 export interface Match {
+  id: string;
   user: any;
   timestamp: Date;
-  unread: boolean;
+  seen: boolean;
 }

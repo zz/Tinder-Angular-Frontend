@@ -1,3 +1,4 @@
+import { Message } from './message';
 import { Match } from './match';
 import { AuthService } from '../core/auth.service';
 import { HttpService } from '../core/http.service';
@@ -15,8 +16,12 @@ export class MatchesService {
     return this.httpService.get('matches/mine');
   }
 
-  createMatch(user) {
-    return this.httpService.post('matches/598d7262fcc23c47d67e6de6', {}); // TODO
+  getMessages (id) {
+    return this.httpService.get(`chat/${id}`);
+  }
+
+  sendMessage (id, message) {
+    return this.httpService.post(`chat/${id}/send`, { message });
   }
 
   convertDbMatchToModel(match): Match {
@@ -25,18 +30,36 @@ export class MatchesService {
     let otherUser: any;
 
     if (match.user1.user.email === currentEmail) {
-      otherUser =  match.user2.user;
-      currentuser = match.user1.user;
+      otherUser =  match.user2;
+      currentuser = match.user1;
     } else {
-      otherUser =  match.user1.user;
-      currentuser = match.user2.user;
+      otherUser =  match.user1;
+      currentuser = match.user2;
     }
 
     return {
-      user: otherUser,
+      id: match._id,
+      user: otherUser.user,
       timestamp: new Date(match.timestamp),
-      unread: !currentuser.read
+      seen: currentuser.seen
     };
+  }
 
+  convertDbMessageToModel(message): Message {
+    const currentEmail = this.authService.getUser();
+    let style: string;
+
+    if (message.from.email === currentEmail) {
+      style = 'right';
+    } else {
+      style = 'left';
+    }
+
+    return {
+      text: message.message,
+      style,
+      sent: new Date(message.timestamp),
+      from: message.from.name
+    };
   }
 }

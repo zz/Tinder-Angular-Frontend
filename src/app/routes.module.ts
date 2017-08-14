@@ -1,3 +1,4 @@
+import { ChatComponent } from './matches/chat/chat.component';
 import { ListComponent } from './users/list/list.component';
 import { ListMatchesComponent } from './matches/list-matches/list-matches.component';
 import { NgModule } from '@angular/core';
@@ -18,7 +19,8 @@ const routes: Routes = [
   { path: 'users/profile', component: ProfileComponent },
   { path: 'matches/list', component: ListMatchesComponent, canActivate: [PrivateRoute]},
   { path: 'users/list', component: ListComponent, canActivate: [PrivateRoute] },
-  { path: 'matches/list', component: ListMatchesComponent, canActivate: [PrivateRoute]}
+  { path: 'matches/list', component: ListMatchesComponent, canActivate: [PrivateRoute]},
+  { path: 'matches/chat/:id', component: ChatComponent, canActivate: [PrivateRoute]}
 ];
 
 @NgModule ({

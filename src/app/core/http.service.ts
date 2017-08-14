@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Http, RequestOptions, Headers } from '@angular/http';
 import { AuthService } from './auth.service';
 
-import "rxjs/add/operator/map";
+import 'rxjs/add/operator/map';
 
 const ROOT_PATH = 'http://localhost:5000/';
 
@@ -33,31 +33,12 @@ export class HttpService {
     return this.http.delete(ROOT_PATH + path, this.options)
       .map(response => response.json());
   }
-  
+
   applyAuthorizationHeader () {
     if (this.authService.isUserAuthenticated()) {
       this.headers.set('Authorization', `bearer ${this.authService.getToken()}`);
       return;
     }
     this.headers.set('Authorization', '');
-  }
-
-  private getRequestOptions(method, authenticated) {
-    const headers = new Headers ();
-
-    if (method !== getMethod) {
-      headers.append('Content-Type', 'application/json');
-    }
-
-    if (authenticated) {
-      const token = this.authService.getToken();
-      headers.append('Authorization', `bearer ${token}`);
-    }
-
-    const requestOptions = new RequestOptions ({
-        headers: headers
-    });
-
-    return requestOptions;
   }
 }

@@ -1,0 +1,27 @@
+<md-card class="wrapper">
+    <md-card-title>Chat</md-card-title>
+    <md-card-content>
+      <md-list *ngIf='messages'>
+        <md-list-item *ngFor='let message of messages' >
+          <div [class]='message.style'>
+            {{message.from}}:
+            <br/>
+            <strong>{{message.text}}</strong>
+          </div>
+        </md-list-item>
+      </md-list>
+  
+      <h2 *ngIf='!messages'>Start a conversation :)</h2>
+
+
+      <md-input-container>
+          <input mdInput 
+            #input
+            placeholder="Message" 
+            type="text" 
+          />
+        </md-input-container> 
+        <button md-raised-button (click)="send(input.value)">Send</button>
+  
+    </md-card-content>
+  </md-card>

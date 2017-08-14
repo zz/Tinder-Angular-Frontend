@@ -8,7 +8,7 @@ import { UsersActions } from '../store/users/users.actions';
 
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
-import { CreateProfileComponent } from './profile/create-profile.component'
+import { CreateProfileComponent } from './profile/create-profile.component';
 import { ProfileComponent } from './profile/profile.component';
 import { ListComponent } from './list/list.component';
 import {
@@ -29,22 +29,16 @@ import {
     RouterModule
   ],
   declarations: [
-      RegisterComponent,
-      LoginComponent,
-      ProfileComponent,
-      CreateProfileComponent
-    ],
-  providers: [
-      UsersService,
-      UsersActions
-    ],
-  imports: [
-    FormsModule,
-    CommonModule,
     RegisterComponent,
     LoginComponent,
-    ListComponent
-  ]
+    ListComponent,
+    ProfileComponent,
+    CreateProfileComponent
+  ],
+  providers: [
+    UsersService,
+    UsersActions
+  ],
 })
 
 export class UsersModule {

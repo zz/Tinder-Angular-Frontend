@@ -2,9 +2,9 @@
   <md-card-title>Matches</md-card-title>
   <md-card-content>
     <div *ngFor="let match of matches" class="match-container">
-      <h3>{{match.user.name}}</h3> <!-- TODO: Make this link to the chat -->
+      <h3><a [routerLink]="['/matches/chat', match.id]">{{match.user.name}}</a></h3> <!-- TODO: Make this link to the chat -->
       <span>{{match.timestamp.toLocaleString()}}</span>
-      <span *ngIf="match.unread"> - New</span> <!-- TODO: Styling.. -->
+      <span *ngIf="!match.seen"> - New</span> <!-- TODO: Styling.. -->
     </div>
   </md-card-content>
 </md-card>

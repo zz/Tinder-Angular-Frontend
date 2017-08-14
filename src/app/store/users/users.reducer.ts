@@ -38,14 +38,15 @@ function logout(state, action) {
 }
 
 function profile(state, action) {
-  console.log(action)
+  console.log(action);
   const result = action.result;
-  console.log(result.updated.name)
+  console.log(result.updated.name);
   return Object.assign({}, state, {
     profileCreated: result.success,
     username: result.updated.name
   });
-  
+}
+
 function loadUsers(state, usersList) {
   return Object.assign({}, state, { usersList });
 }
@@ -59,7 +60,7 @@ export function usersReducer(state = initialState, action) {
       case USER_LOGOUT:
         return logout(state, action);
       case USER_PROFILE:
-        return profile(state, action)
+        return profile(state, action);
       case USERS_LIST:
         return loadUsers(state, action.users);
       default:

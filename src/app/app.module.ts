@@ -19,6 +19,8 @@ import { MaterialModule } from '@angular/material';
 import { AuthService } from './core/auth.service';
 import { config } from './core/config';
 
+import 'hammerjs';
+
 
 @NgModule({
   declarations: [
