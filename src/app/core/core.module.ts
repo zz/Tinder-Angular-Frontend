@@ -28,7 +28,6 @@ import { MessageHandlerComponent } from './message-handler.component';
       MessageHandlerComponent
     ]
 })
+export class CoreModule {
 
- export class CoreModule {
-
- }
+}

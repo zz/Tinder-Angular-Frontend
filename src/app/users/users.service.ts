@@ -9,8 +9,16 @@ export class UsersService {
     return this.httpService.post('auth/register', user);
   }
 
-  profile (user) {
-    return this.httpService.post('auth/profile', user);
+  getProfile (id?) {
+    if (id) {
+      return this.httpService.get(`users/profile/${id}`);
+    } else {
+      return this.httpService.get(`users/profile`);
+    }
+  }
+
+  editProfile (user) {
+    return this.httpService.post('users/profile', user);
   }
 
   login (user) {

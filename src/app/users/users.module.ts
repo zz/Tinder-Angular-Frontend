@@ -8,7 +8,7 @@ import { UsersActions } from '../store/users/users.actions';
 
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
-import { CreateProfileComponent } from './profile/create-profile.component';
+import { UpdateProfileComponent } from './profile/update/update-profile.component';
 import { ProfileComponent } from './profile/profile.component';
 import { ListComponent } from './list/list.component';
 import {
@@ -33,7 +33,7 @@ import {
     LoginComponent,
     ListComponent,
     ProfileComponent,
-    CreateProfileComponent
+    UpdateProfileComponent
   ],
   providers: [
     UsersService,

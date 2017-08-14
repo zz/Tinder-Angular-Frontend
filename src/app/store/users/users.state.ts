@@ -1,10 +1,12 @@
+import { ProfileModel } from '../../users/profile/profile-user.model';
 export interface IUsersState {
   userRegistered: boolean;
   userAuthenticated: boolean;
   token: string;
   username: string;
-  profileCreated: boolean;
-  usersList: Array<any>; // TODO: User Model
+  // profileCreated: boolean;
+  usersList: Array<ProfileModel>; // TODO: User Model
+  profile: ProfileModel;
 }
 
 export const initialState: IUsersState = {
@@ -12,6 +14,7 @@ export const initialState: IUsersState = {
   userAuthenticated: false,
   token: null,
   username: null,
-  profileCreated: false,
-  usersList: []
+  // profileCreated: false,
+  usersList: [],
+  profile: null
 };

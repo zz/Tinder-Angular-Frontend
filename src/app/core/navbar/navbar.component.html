@@ -1,7 +1,6 @@
 <div>
   <div *ngIf="authenticated">
-    <a routerLink='/users/create-profile'>Create Profile</a>
-    <a routerLink='/users/profile'>{{username}}</a>
+    <a routerLink='/users/profile'>Profile</a>
     <a routerLink='/matches/list'>My Matches</a>
     <a routerLink='/users/list'>Users List</a>
     <a href="javascript:void(0)" (click)="logout()">Logout</a>

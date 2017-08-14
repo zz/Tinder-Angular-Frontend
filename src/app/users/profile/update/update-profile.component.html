@@ -1,6 +1,6 @@
 
 <h1>Create profile</h1>
-<form #createProfileForm='ngForm' (submit) ="createProfile()">
+<form *ngIf="user" #createProfileForm='ngForm' (submit) ="update()">
   <div class="form-group">
     <label for="name">Name</label>
     <input 

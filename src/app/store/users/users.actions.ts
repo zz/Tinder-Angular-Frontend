@@ -8,6 +8,7 @@ export const USER_REGISTERED = 'users/REGISTER';
 export const USER_LOGOUT = 'users/LOGOUT';
 export const USER_PROFILE = 'users/PROFILE';
 export const USERS_LIST = 'users/LIST';
+export const LOAD_PROFILE = 'profile/LOAD';
 
 @Injectable()
 export class UsersActions {
@@ -28,14 +29,21 @@ export class UsersActions {
   }
 
   updateProfile (user) {
-    this.usersService
-      .profile(user)
-      .subscribe(result => {
+    return this.usersService
+      .editProfile(user);
+  }
+
+  getProfile (id?) {
+    this.usersService.getProfile(id).subscribe(response => {
+      if (response.success !== false) {
         this.ngRedux.dispatch({
-          type: USER_PROFILE,
-          result
-        })
-      })
+          type: LOAD_PROFILE,
+          profile: response
+        });
+      } else {
+        console.error(response.message);
+      }
+    });
   }
 
   login (user) {

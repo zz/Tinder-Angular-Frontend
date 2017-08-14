@@ -4,7 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { IAppState } from '../../store/app.state';
 import { NgRedux } from 'ng2-redux';
 import { MatchesActions } from '../../store/matches/matches.actions';
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-chat',
@@ -14,6 +14,7 @@ import { Component, OnInit } from '@angular/core';
 export class ChatComponent implements OnInit {
   private id: number;
   private messages: Message[];
+  @ViewChild('input') input: ElementRef;
 
   constructor(
     private matchesActions: MatchesActions,
@@ -40,6 +41,6 @@ export class ChatComponent implements OnInit {
 
   send(message) {
     this.matchesActions.sendMessage(this.id, message);
+    this.input.nativeElement.value = '';
   }
-
 }

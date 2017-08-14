@@ -1,1 +1,18 @@
-<h1>My profile</h1>
+<h1 *ngIf="!id">My profile</h1>
+<h1 *ngIf="id && profile">{{profile.name}}'s profile</h1>
+
+<div *ngIf='profile'>
+  TODO: Add Image!
+  <br/>
+  Email: <strong>{{profile.email}}</strong>
+  <br/>
+  Name: <strong>{{profile.name}}</strong>
+  <br/>
+  Age: <strong>{{profile.age}}</strong>
+  <br/>
+  Gender: <strong>{{profile.gender}}</strong>
+  <br/>
+  Interested in: <strong>{{profile.interested}}</strong>
+  <br/>
+  <a *ngIf='!id' routerLink='/users/profile/update'>Update Profile</a>
+</div>
