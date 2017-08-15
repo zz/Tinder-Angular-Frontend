@@ -12,6 +12,7 @@ $ npm install #or yarn
 Make sure you are running mongo and the Backend server prior to starting the forntend server
 ``````````
 $ npm start #or yarn start
+``````````
 
 ## Technologies
 - [Redux](http://redux.js.org/)
